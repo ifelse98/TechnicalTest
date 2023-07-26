@@ -33,13 +33,13 @@ public class ItemController {
     }
 
     @PostMapping("/items")
-    public Item create(@RequestBody Item produk) {
-        return itemService.create(produk);
+    public Item create(@RequestBody Item item) {
+        return itemService.create(item);
     }
 
     @PutMapping("/items")
-    public Item edit(@RequestBody Item produk) {
-        return itemService.edit(produk);
+    public Item edit(@RequestBody Item item) {
+        return itemService.edit(item);
     }
 
     @DeleteMapping("/items/{id}")

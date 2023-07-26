@@ -3,6 +3,7 @@ package com.test.buanaVariaDevita.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,13 @@ public class TransactionController {
 		return transactionService.addCart(request.getTransactionId(), request.getUserName(), request.getItemId(),
 				request.getKuantitas());
 	}
+	
+	@PostMapping("/transactions")
+	public ResponseEntity<List<Transaction>> addMoredata(@RequestBody List<TransactionDto> request) {
+        List<Transaction> savedTransactions = transactionService.addCarts(request);
+        return ResponseEntity.ok(savedTransactions);
+    }
+	
 
 	@DeleteMapping("/transaction")
 	public void delete(@RequestBody TransactionDto request) {
